@@ -1,0 +1,16 @@
+﻿@model TestingSystem.Models.ThematicArea
+
+<tr data-tt-id=@Model.ID data-tt-parent-id=@Model.ThematicAreaID>
+    <td>
+        @Html.DisplayFor(model => model.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = Model.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+    </td>
+    @foreach (var item in Model.SubThematicAreas)
+    {
+        @Html.DisplayFor(modelItem => item)
+    }
+</tr>

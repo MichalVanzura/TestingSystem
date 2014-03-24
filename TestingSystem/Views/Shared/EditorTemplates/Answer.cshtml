@@ -1,0 +1,22 @@
+﻿@model TestingSystem.Models.Answer
+@using TestingSystem.Models
+
+<tr class="answer">
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.QuestionID)
+    @Html.HiddenFor(x => x.deleteThis, new { @class = "mark-for-delete" })
+
+    <td>
+        @Html.EditorFor(model => model.Text, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Text)
+    </td>
+
+    <td>
+        @Html.EditorFor(model => model.IsCorrect, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IsCorrect)
+    </td>
+
+    <td>
+        @Html.RemoveLink("Remove", "tr.answer", "input.mark-for-delete")
+    </td>
+</tr>
